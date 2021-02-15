@@ -1,0 +1,11 @@
+#[myself] 
+#localhost
+
+[host1] 
+ip-172-31-23-144.us-east-2.compute.internal
+
+#[host2]
+#ip-172-31-7-139.us-east-2.compute.internal
+
+[host3]
+ip-172-31-41-73.us-east-2.compute.internal ansible_ssh_user=ec2-user

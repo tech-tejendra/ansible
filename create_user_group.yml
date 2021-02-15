@@ -1,0 +1,20 @@
+--- 
+- name: Create Users 
+  hosts: host1  
+  vars_files:
+    - users_list.yml
+  tasks: 
+    - name: Ensure permission groups exist  
+      group:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ permission_groups }}"
+
+    - name: Ensure Database Users exist
+      user:
+        name: "{{ item.username }}"
+        groups: "{{ item.role }}"
+        append: yes
+        state: present
+      loop: "{{ user_list }}"  
+      when: item.role in permission_groups

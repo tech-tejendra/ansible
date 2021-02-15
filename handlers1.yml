@@ -1,0 +1,15 @@
+---
+- name: MariaDB server is installed
+  hosts: host1  
+  vars:
+    db_packages:
+      - mariadb-server
+      - python3-mysqldb
+    db_service: mariadb
+
+  tasks:
+    - name: "{{ db_packages }} packages are installed"      
+      package:
+        name: "{{ db_packages }}"
+        state: absent
+
