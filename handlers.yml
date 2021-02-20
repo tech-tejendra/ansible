@@ -11,7 +11,7 @@
     - name: "{{ db_packages }} packages are installed"      
       package:
         name: "{{ db_packages }}"
-        state: absent
+        state: present
       notify:
         - set db password
 
